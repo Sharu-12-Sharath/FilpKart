@@ -40,8 +40,10 @@ public class CardTestCase extends BaseTest{
 		//Select s= new Select(c.DD());
 		//s.selectByVisibleText("KARNATAKA");
 		c.UseB().click();
-		driver.findElement(By.name("ppw-instrumentRowSelection")).click();
-		driver.findElement(By.xpath("//input[@placeholder='Enter UPI ID']")).sendKeys("sdfgh");
+		driver.findElement(By.xpath("(//input[@type='radio'])[3]")).click();
+		driver.findElement(By.xpath("//input[@placeholder='Enter UPI ID']")).sendKeys("872289151@ybl");
+		driver.findElement(By.xpath("(//span[.='Verify'])[1]")).click();
+		driver.findElement(By.xpath("(//span[.='Use this payment method'])[1]")).click();
 	}
 	
 }
