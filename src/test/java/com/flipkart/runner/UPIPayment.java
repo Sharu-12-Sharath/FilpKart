@@ -1,25 +1,19 @@
 package com.flipkart.runner;
 
-//import static org.testng.Assert.ARRAY_MISMATCH_TEMPLATE;
-
 import java.util.Set;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptException;
 import org.openqa.selenium.JavascriptExecutor;
-//import org.openqa.selenium.JavascriptException;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
 
 import com.flipkart.pos.scripts.CardPaymentElements;
-import com.flipkart.pos.scripts.Elements;
 import com.pearson.generic.scripts.BaseTest;
 
-public class CardTestCase extends BaseTest{
+public class UPIPayment extends BaseTest{
 	
 	@Test
-	public void Card() {
+	public void upi() {
 		CardPaymentElements c=new CardPaymentElements(driver);
 		c.CartB().click();
 		c.prodect1().click();
@@ -40,8 +34,14 @@ public class CardTestCase extends BaseTest{
 		//Select s= new Select(c.DD());
 		//s.selectByVisibleText("KARNATAKA");
 		c.UseB().click();
-		c.RedioB().click();
-		
+		driver.findElement(By.xpath("(//input[@type='radio'])[3]")).click();
+		driver.findElement(By.xpath("//input[@placeholder='Enter UPI ID']")).sendKeys("872289151@ybl");
+		driver.findElement(By.xpath("(//span[.='Verify'])[1]")).click();
+		WebElement ele1 = driver.findElement(By.xpath("(//span[.='Use this payment method'])[1]"));
+		int y = ele1.getLocation().getY();
+		JavascriptExecutor js=(JavascriptExecutor) driver;
+		js.executeScript("window.scrollBy(0,"+y+")");
+		ele1.click();
 	}
-	
+
 }

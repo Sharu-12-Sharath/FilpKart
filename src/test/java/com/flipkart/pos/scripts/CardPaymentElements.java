@@ -9,7 +9,7 @@ public class CardPaymentElements {
 	
 	@FindBy(id = "nav-cart-text-container")
 	private WebElement CartButton;
-	@FindBy(xpath  = "//span[contains(.,'iPhone 16 128 ') and @class='a-list-item']")
+	@FindBy(xpath  = "(//span[.='Apple iPhone 15 (128 GB) - Green'])[1]")
 	private WebElement Prodect;
 	@FindBy(xpath  = "//input[@id='buy-now-button']")
 	private WebElement BuyNow;

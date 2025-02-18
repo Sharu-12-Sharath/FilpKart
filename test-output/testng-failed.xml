@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.flipkart.runner.CardTestCase">
+      <class name="com.flipkart.runner.UPIPayment">
         <methods>
           <include name="login"/>
-          <include name="Card"/>
           <include name="close"/>
+          <include name="upi"/>
         </methods>
-      </class> <!-- com.flipkart.runner.CardTestCase -->
+      </class> <!-- com.flipkart.runner.UPIPayment -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
