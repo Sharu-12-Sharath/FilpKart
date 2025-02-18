@@ -41,7 +41,7 @@ public class UPIPayment extends BaseTest{
 		int y = ele1.getLocation().getY();
 		JavascriptExecutor js=(JavascriptExecutor) driver;
 		js.executeScript("window.scrollBy(0,"+y+")");
-		ele1.click();
+		//ele1.click();
 	}
 
 }
