@@ -4,6 +4,7 @@ package com.flipkart.runner;
 
 import java.util.Set;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptException;
 import org.openqa.selenium.JavascriptExecutor;
 //import org.openqa.selenium.JavascriptException;
@@ -39,13 +40,8 @@ public class CardTestCase extends BaseTest{
 		//Select s= new Select(c.DD());
 		//s.selectByVisibleText("KARNATAKA");
 		c.UseB().click();
-		WebElement ra = c.RedioB();
-		int y = ra.getLocation().getY();
-		JavascriptExecutor js=(JavascriptExecutor) driver;
-		js.executeScript("window.scrollBy(277,7)");
-		c.RedioB().click();
-		c.addcardI().click();
-		js.executeScript("document.getElementById('pp-6CaG00-16').value='4242424242424242'");
+		driver.findElement(By.name("ppw-instrumentRowSelection")).click();
+		driver.findElement(By.xpath("//input[@placeholder='Enter UPI ID']")).sendKeys("sdfgh");
 	}
 	
 }
