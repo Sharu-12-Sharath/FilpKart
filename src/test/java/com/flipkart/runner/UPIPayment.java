@@ -5,6 +5,8 @@ import java.util.Set;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
 import com.flipkart.pos.scripts.CardPaymentElements;
@@ -24,24 +26,14 @@ public class UPIPayment extends BaseTest{
 			driver.switchTo().window(s);
 		}
 		c.BuyNowB().click();
-		c.FNText().sendKeys("Sharath S");
-		c.MNText().sendKeys("8618865631");
-		c.PNCText().sendKeys("562132");
-		c.Ad1T().sendKeys("House No: 05");
-		c.Ad2T().sendKeys("Harivesandra");
-		c.Land().sendKeys("Dabaspete Industrial area");
-		c.cityT().sendKeys("Nelamangala");
-		//Select s= new Select(c.DD());
-		//s.selectByVisibleText("KARNATAKA");
-		c.UseB().click();
-		driver.findElement(By.xpath("(//input[@type='radio'])[3]")).click();
-		driver.findElement(By.xpath("//input[@placeholder='Enter UPI ID']")).sendKeys("872289151@ybl");
-		driver.findElement(By.xpath("(//span[.='Verify'])[1]")).click();
-		WebElement ele1 = driver.findElement(By.xpath("(//span[.='Use this payment method'])[1]"));
-		int y = ele1.getLocation().getY();
-		JavascriptExecutor js=(JavascriptExecutor) driver;
-		js.executeScript("window.scrollBy(0,"+y+")");
-		//ele1.click();
+		c.RadioUpi().click();
+		c.upiTextF().sendKeys("872289151@ybl");
+		c.VB().click();
+		WebDriverWait wait = new WebDriverWait(driver, 30);
+		WebElement element = wait.until(ExpectedConditions.elementToBeClickable(c.useTPB()));
+		element.click();
+		WebElement element1 = wait.until(ExpectedConditions.elementToBeClickable(c.PayNB()));
+		element1.click();
 	}
 
 }

@@ -9,7 +9,7 @@ public class CardPaymentElements {
 	
 	@FindBy(id = "nav-cart-text-container")
 	private WebElement CartButton;
-	@FindBy(xpath  = "(//span[.='Apple iPhone 15 (128 GB) - Green'])[1]")
+	@FindBy(xpath  = "//h2[@id='sc-active-items-header']/../../../descendant::form/div[2]/descendant::img[@class='sc-product-image']")
 	private WebElement Prodect;
 	@FindBy(xpath  = "//input[@id='buy-now-button']")
 	private WebElement BuyNow;
@@ -36,9 +36,25 @@ public class CardPaymentElements {
 	private WebElement RadB;
 	@FindBy(xpath = "(//img[contains(@src,'PlusIcon')])[1]")
 	private WebElement addCard;
-	@FindBy(name = "addCreditCardNumber")
+	@FindBy(xpath = "//h4[.='Save Card']/../../div[1]/div[1]/descendant::input[@name='addCreditCardNumber']")
 	private WebElement cardNum;
+	@FindBy(id = "field")
+	private WebElement cvv;
+	@FindBy(xpath = "//input[@type='checkbox']")
+	private WebElement CheckB;
 	
+	//UPI Payments
+	
+	@FindBy(xpath = "//span[.='Other UPI Apps']/../../../../div[1]")
+	private WebElement upiRadio;
+	@FindBy(xpath = "//input[@placeholder='Enter UPI ID']")
+	private WebElement upiText;
+	@FindBy(xpath = "(//span[.='Verify'])[1]")
+	private WebElement verify;
+	@FindBy(xpath = "//span[.='Items:']/../../../../../descendant::span[@data-action='buy-button-as-primary-action']")
+	private WebElement useTP;
+	@FindBy(xpath = "//span[.='Items:']/../../../../../descendant::form")
+	private WebElement PayNow;
 	
 	public CardPaymentElements(WebDriver driver) {
 		PageFactory.initElements(driver, this);
@@ -88,5 +104,26 @@ public class CardPaymentElements {
 	}
 	public WebElement RedioB() {
 		return RadB;
+	}
+	public WebElement RadioUpi() {
+		return upiRadio;
+	}
+	public WebElement upiTextF() {
+		return upiText;
+	}
+	public WebElement VB() {
+		return verify;
+	}
+	public WebElement useTPB() {
+		return useTP;
+	}
+	public WebElement PayNB() {
+		return PayNow;
+	}
+	public WebElement cvvT() {
+		return cvv;
+	}
+	public WebElement Check() {
+		return CheckB;
 	}
 }

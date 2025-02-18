@@ -23,7 +23,7 @@ public class BaseTest {
 		driver.get("https://www.amazon.in/");
 		Elements e=new Elements(driver);
 		e.SigButton().click();
-		e.MobnumberF().sendKeys("8618865631");
+		e.MobnumberF().sendKeys("6364282702");
 		e.Continue().click();
 		e.PassText().sendKeys("Sharath@123");
 		e.SignBN().click();

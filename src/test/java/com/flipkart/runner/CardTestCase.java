@@ -9,7 +9,9 @@ import org.openqa.selenium.JavascriptException;
 import org.openqa.selenium.JavascriptExecutor;
 //import org.openqa.selenium.JavascriptException;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
 import com.flipkart.pos.scripts.CardPaymentElements;
@@ -30,17 +32,20 @@ public class CardTestCase extends BaseTest{
 			driver.switchTo().window(s);
 		}
 		c.BuyNowB().click();
-		c.FNText().sendKeys("Sharath S");
-		c.MNText().sendKeys("8618865631");
-		c.PNCText().sendKeys("562132");
-		c.Ad1T().sendKeys("House No: 05");
-		c.Ad2T().sendKeys("Harivesandra");
-		c.Land().sendKeys("Dabaspete Industrial area");
-		c.cityT().sendKeys("Nelamangala");
-		//Select s= new Select(c.DD());
-		//s.selectByVisibleText("KARNATAKA");
-		c.UseB().click();
 		c.RedioB().click();
+		c.addcardI().click();
+		//Here we need add the card details manually 
+		WebDriverWait wait = new WebDriverWait(driver, 30);
+		WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//iframe[@name='apx-secure-field-addCreditCardVerificationNumber']")));
+		driver.switchTo().frame(element);
+		c.cvvT().sendKeys("532");
+		driver.switchTo().parentFrame();
+		WebElement ele = wait.until(ExpectedConditions.elementToBeClickable(c.useTPB()));
+		ele.click();
+		WebElement element1 = wait.until(ExpectedConditions.elementToBeClickable(c.useTPB()));
+		element1.click();
+		WebElement element2 = wait.until(ExpectedConditions.elementToBeClickable(c.PayNB()));
+		element2.click();
 		
 	}
 	
