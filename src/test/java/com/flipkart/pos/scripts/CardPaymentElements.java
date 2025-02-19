@@ -40,7 +40,7 @@ public class CardPaymentElements {
 	private WebElement cardNum;
 	@FindBy(id = "field")
 	private WebElement cvv;
-	@FindBy(xpath = "//input[@type='checkbox']")
+	@FindBy(xpath = "//span[text()='Save card as per new RBI guidelines.']/../descendant::input[@type='checkbox']")
 	private WebElement CheckB;
 	
 	//UPI Payments
